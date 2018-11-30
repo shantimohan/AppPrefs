@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             BackgroundColor="LightGoldenrodYellow"
+             Title="File Based Settings"
+             x:Class="AppPrefs.SQLiteSettingsTable">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="tbiSave"
+                     Clicked="tbiSave_Clicked"
+                     Text="Save"
+                     Order="Primary">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="icon_floppy.png"/>
+                    <On Platform="UWP" Value="Icons/icon_floppy.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         BackgroundColor="Indigo">
+                <Label x:Name="AppTitle"
+                       FontSize="Large"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       HorizontalOptions="StartAndExpand"/>
+                <Label x:Name="TodayIs"
+                       FontSize="Large"
+                       TextColor="White"
+                       HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

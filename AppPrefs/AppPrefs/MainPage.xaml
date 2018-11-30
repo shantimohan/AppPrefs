@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             BackgroundColor="LightGreen"
+             Title="Main Menu"
+             xmlns:local="clr-namespace:AppPrefs"
+             x:Class="AppPrefs.MainPage">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         BackgroundColor="Indigo">
+                <Label x:Name="AppTitle"
+                       FontSize="Large"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       HorizontalOptions="StartAndExpand"/>
+                <Label x:Name="TodayIs"
+                       FontSize="Large"
+                       TextColor="White"
+                       HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+            <StackLayout Margin="30"
+                         VerticalOptions="CenterAndExpand">
+                <Button x:Name="btnFileBasedSettings"
+                        Text="File Based Settings Page"
+                        Clicked="btnFileBasedSettings_Clicked"
+                        BorderColor="Red"
+                        BorderWidth="2" />
+                <Button x:Name="btnXamarinEssentialsPreferences"
+                        Text="Xamarin Essentials Preferences Page"
+                        Clicked="btnXamarinEssentialsPreferences_Clicked"
+                        BorderColor="Red"
+                        BorderWidth="2" />
+                <Button x:Name="btnSQLiteSettingsTable"
+                        Text="SQLite Settings Table Page"
+                        Clicked="btnSQLiteSettingsTable_Clicked"
+                        BorderColor="Red"
+                        BorderWidth="2" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
