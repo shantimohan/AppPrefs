@@ -4,7 +4,7 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
              BackgroundColor="LightGoldenrodYellow"
-             Title="File Based Settings"
+             Title="SQLite Settings Table"
              x:Class="AppPrefs.SQLiteSettingsTable">
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="tbiSave"

@@ -58,9 +58,9 @@ namespace AppPrefs
             return await Task.FromResult(true);
         }
 
-        public async Task<Settings> GetSettingsAsync(int id)
+        public async Task<List<Settings>> GetSettingsAsync(int id)
         {
-            return await dbConn.ExecuteScalarAsync<Settings>($"SELECT * FROM [settings] WHERE [Id] = {id}");
+            return await dbConn.QueryAsync<Settings>($"SELECT * FROM [settings] WHERE [Id] = {id}");
         }
 
         //public async Task<bool> DeleteSettingsAsync(Settings appSettings)
