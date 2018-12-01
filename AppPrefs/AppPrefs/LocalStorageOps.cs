@@ -68,10 +68,10 @@ namespace AppPrefs
         {
             MyAppState myAppState = null;
 
-            var settings = await App.SettingsDB.GetSettingsAsync(1);
+            List<Settings> settingsList = await App.SettingsDB.GetSettingsAsync(1);
 
-            if (settings != null  && settings.Count > 0)
-                myAppState = Deserialize<MyAppState>(settings[0].strSettings);
+            if (settingsList != null  && settingsList.Count > 0)
+                myAppState = Deserialize<MyAppState>(settingsList[0].strSettings);
 
             return myAppState;
         }

@@ -73,25 +73,27 @@ namespace AppPrefs
 
             BindingContext = myAppSettings;
 
-            //SetAdvtStatus();
+            SetAdvtStatus();
         }  // end of: CheckAppSettings()
 
-        //private void SetAdvtStatus()
-        //{
-        //    if (swtAdStatus.IsToggled)
-        //        lblAdStatus.Text = "Consented";
-        //    else
-        //        lblAdStatus.Text = "NOT Consented";
-        //}
-
-        //private void swtAdStatus_Toggled(object sender, ToggledEventArgs e)
-        //{
-        //    SetAdvtStatus();
-        //}
-
-        private void tbiSave_Clicked(object sender, EventArgs e)
+        private void SetAdvtStatus()
         {
+            if (swtAdStatus.IsToggled)
+                lblAdStatus.Text = "Consented";
+            else
+                lblAdStatus.Text = "NOT Consented";
+        }
 
+        private void swtAdStatus_Toggled(object sender, ToggledEventArgs e)
+        {
+            SetAdvtStatus();
+        }
+
+        private async void tbiSave_Clicked(object sender, EventArgs e)
+        {
+            // Save current app settings
+            await LocalStorageOps.SaveAppSettingsToDB(myAppSettings.GetMyAppState());
+            await DisplayAlert("App Settings", "App Settings SAVED", "OK");
         }
 
     }  // end of: class SQLiteSettingsTable

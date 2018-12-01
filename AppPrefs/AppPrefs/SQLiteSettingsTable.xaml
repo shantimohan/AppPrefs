@@ -19,6 +19,7 @@
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Horizontal"
@@ -33,6 +34,130 @@
                        TextColor="White"
                        HorizontalOptions="EndAndExpand" />
             </StackLayout>
+
+            <Label Text="{Binding AppSettingsVersion}"
+                   Margin="10,0,10,0"
+                   TextColor="Red"
+                   FontAttributes="Italic"
+                   FontSize="Micro" />
+
+            <ScrollView>
+                <StackLayout>
+                    <Frame BorderColor="Red"
+                           Margin="10,4,10,2"
+                           BackgroundColor="LightBlue">
+                        <StackLayout>
+                            <Label Text="Your E-mail Address:"
+                                   FontSize="Small" />
+                            <Entry x:Name="EmailAddress"
+                                   Text="{Binding EmailAddress, Mode=TwoWay}"
+                                   Placeholder="Email Address" />
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame BorderColor="Red"
+                           Margin="10,2,10,2"
+                           BackgroundColor="LightGreen">
+                        <StackLayout>
+                            <Label Text="Advertisements:"
+                                   FontSize="Small" />
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="lblAdStatus"
+                                       Text="Don't Show"
+                                       HorizontalOptions="StartAndExpand" />
+                                <Switch x:Name="swtAdStatus"
+                                        Toggled="swtAdStatus_Toggled"
+                                        IsToggled="{Binding AdvtsConsented, Mode=TwoWay}"
+                                        HorizontalOptions="EndAndExpand" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame BorderColor="Red"
+                           Margin="10,2,10,2"
+                           BackgroundColor="LightBlue">
+                        <StackLayout>
+                            <Label Text="Cut-off Date:"
+                                   FontSize="Small" />
+                            <DatePicker x:Name="dpkrCutoffDate"
+                                        Date="{Binding CutoffDate, Mode=TwoWay}" />
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame BorderColor="Red"
+                           Margin="10,2,10,2"
+                           BackgroundColor="LightGreen">
+                        <StackLayout>
+                            <Label Text="Selected Size:"
+                                   FontSize="Small" />
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="lblCommunicationMode"
+                                       Text="Select a Size: "
+                                       VerticalTextAlignment="Center"
+                                       FontSize="Medium" />
+                                <Picker x:Name="pkrSize"
+                                        SelectedItem="{Binding SelectedSize}"
+                                        WidthRequest="120"
+                                        FontSize="Medium">
+                                    <Picker.Items>
+                                        <x:String>Small</x:String>
+                                        <x:String>Medium</x:String>
+                                        <x:String>Large</x:String>
+                                        <x:String>Xtra Large</x:String>
+                                        <x:String>XXtra Large</x:String>
+                                        <x:String>XXXtra Large</x:String>
+                                    </Picker.Items>
+                                </Picker>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame BorderColor="Red"
+                           Margin="10,2,10,2"
+                           BackgroundColor="LightBlue">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Source={x:Reference stpEventsDeleteThreshold}, Path=Value,StringFormat='Keep Events only of past {0:F0} month(s)'}"
+                                   FontSize="Medium" />
+                            <Stepper x:Name="stpEventsDeleteThreshold"
+                                     Value="{Binding EventsDeleteThreshold, Mode=TwoWay}"
+                                     HeightRequest="40"
+                                     HorizontalOptions="End"
+                                     Maximum="12"
+                                     Minimum="1" />
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame BorderColor="Red"
+                           Margin="10,2,10,2"
+                           BackgroundColor="LightGreen">
+                        <StackLayout>
+                            <Label Text="{Binding Source={x:Reference sliMaxDiscountPct}, Path=Value,StringFormat='Maximum Discount allowed is {0:F0}%'}"
+                                   FontSize="Medium" />
+                            <Slider x:Name="sliMaxDiscountPct"
+                                    Value="{Binding MaxDiscountPct}"
+                                    Maximum="15"
+                                    Minimum="1" />
+                        </StackLayout>
+                    </Frame>
+
+                    <!--<Template>
+
+                    <Frame BorderColor="Red"
+                           Margin="10,2,10,2"
+                           BackgroundColor="LightBlue">
+                        
+                    </Frame>
+
+                    <Frame BorderColor="Red"
+                           Margin="10,2,10,2"
+                           BackgroundColor="LightGreen">
+
+                    </Frame>
+
+                    </Template>-->
+
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
